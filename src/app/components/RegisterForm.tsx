@@ -35,7 +35,6 @@ const RegisterForm = () => {
         router.push("/dashboard");
       } else if (res.status === 400) {
         setError("User with that email already exists");
-        console.log("User with that email already exists");
       }
     } catch (error) {
       setError("Error during registration");
@@ -44,19 +43,45 @@ const RegisterForm = () => {
   };
 
   return (
-    <Stack height={"100vh"} justifyContent={"center"}>
-      <Stack justifyContent={"center"} alignItems={"center"} spacing={1}>
-        <Typography>Register an account here!</Typography>
-        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }}>
-          <input onChange={(e) => setUsername(e.target.value)} type="text" placeholder="User Name"></input>
-          <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email"></input>
-          <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password"></input>
-          <button typeof="submit">Login</button>
-        </form>
-        {error && <Typography color={"red"}>{error}</Typography>}
-        <Link href={"/"}>Already have an account? Login here</Link>
-      </Stack>
-    </Stack>
+    <div className="h-screen justify-center">
+      <div className="flex flex-row">
+        <div
+          className="h-screen bg-ima w-4/6"
+          style={{ backgroundImage: "url(/images/home-bg-slider-img1.jpg)", backgroundSize: "cover" }}
+        />
+        <div className="flex-col space-y-7 flex p-6 justify-center mb-60 ml-11">
+          <h1 className="text-blue-500 font-bold text-5xl">Register</h1>
+          <span className="text-2xl text-gray-500">Register an account here!</span>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
+            <input
+              className="rounded-md p-3 background bg-slate-600 bg-opacity-5 placeholder:text-gray-600"
+              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder="Email"
+              color="red"
+            ></input>
+            <input
+              className="rounded-md p-3 background bg-slate-600 bg-opacity-5 placeholder:text-gray-600"
+              onChange={(e) => setUsername(e.target.value)}
+              type="text"
+              placeholder="Username"
+              color="red"
+            ></input>
+            <input
+              className="rounded-md p-3 background bg-slate-600 bg-opacity-5 placeholder:text-gray-600"
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="Password"
+            ></input>
+            <button className="bg-blue-500 rounded-lg p-3 max-w-32 background text-white" type="submit">
+              Register
+            </button>
+          </form>
+          {error && <Typography color={"red"}>{error}</Typography>}
+          <Link href={"/register"}>Already have an account? Login here</Link>
+        </div>
+      </div>
+    </div>
   );
 };
 
