@@ -1,10 +1,9 @@
 "use client";
-import { Box, Stack, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { logMovies } from "../../../services/phishapi";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -14,7 +13,6 @@ const LoginForm = () => {
   const router = useRouter();
 
   useEffect(() => {
-    logMovies();
     if (session.status === "authenticated") {
       router.replace("/dashboard");
     }
@@ -43,7 +41,10 @@ const LoginForm = () => {
       <div className="flex flex-row">
         <div
           className="h-screen bg-ima w-4/6"
-          style={{ backgroundImage: "url(/images/home-bg-slider-img1.jpg)", backgroundSize: "cover" }}
+          style={{
+            backgroundImage: "url(/images/home-bg-slider-img1.jpg)",
+            backgroundSize: "cover",
+          }}
         />
         <div className="flex-col space-y-7 flex p-6 justify-center mb-60 ml-11">
           <h1 className="text-blue-500 font-bold text-5xl">Login</h1>
@@ -62,7 +63,10 @@ const LoginForm = () => {
               type="password"
               placeholder="Password"
             ></input>
-            <button className="bg-blue-500 rounded-lg p-3 max-w-32 background text-white" type="submit">
+            <button
+              className="bg-blue-500 rounded-lg p-3 max-w-32 background text-white"
+              type="submit"
+            >
               Login
             </button>
           </form>
