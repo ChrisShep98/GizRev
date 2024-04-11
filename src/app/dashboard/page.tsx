@@ -1,5 +1,6 @@
 import React from "react";
-import UserInfo from "../components/UserInfo";
+import NavBar from "../components/NavBar";
+import CreatePost from "../components/CreatePost";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
@@ -10,7 +11,8 @@ const Dashboard = async () => {
   }
   return (
     <>
-      <UserInfo />
+      <NavBar />
+      <CreatePost />
     </>
   );
 };

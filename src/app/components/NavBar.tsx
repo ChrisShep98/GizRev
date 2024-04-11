@@ -1,7 +1,6 @@
 "use client";
 import {
   AppBar,
-  Avatar,
   Box,
   Button,
   Container,
@@ -17,7 +16,7 @@ import { signOut } from "next-auth/react";
 import React from "react";
 import { useSession } from "next-auth/react";
 
-const UserInfo = () => {
+const NavBar = () => {
   const { data: session } = useSession();
   console.log(session);
 
@@ -127,9 +126,7 @@ const UserInfo = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}></IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: "45px" }}
@@ -174,4 +171,4 @@ const UserInfo = () => {
   );
 };
 
-export default UserInfo;
+export default NavBar;

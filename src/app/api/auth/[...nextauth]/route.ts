@@ -18,12 +18,13 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials: any) {
-        console.log(credentials);
-
         try {
           await connectMongoDB();
           const user = await User.findOne({ username: credentials.username });
-          const passwordsMatch = await bcrypt.compare(credentials.password, user.password);
+          const passwordsMatch = await bcrypt.compare(
+            credentials.password,
+            user.password
+          );
 
           if (!user) {
             return null;
@@ -51,7 +52,6 @@ const handler = NextAuth({
     async jwt({ token, user }: any) {
       // user is the value returned from the authorize function above
       user && (token.user = user);
-      console.log("token", token);
       // token {
       //   sub: '6',
       //   user: { id: 6 },
