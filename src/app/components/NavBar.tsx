@@ -59,6 +59,17 @@ const NavBar = () => {
           >
             GIZMA
           </Typography>
+          <Button
+            sx={{ color: "purple" }}
+            onClick={() =>
+              signOut({
+                redirect: true,
+                callbackUrl: `${window.location.origin}/`,
+              })
+            }
+          >
+            Sign out
+          </Button>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -152,16 +163,6 @@ const NavBar = () => {
               </MenuItem>
               <MenuItem onClick={() => alert("feature not implemented yet")}>
                 Dashboard
-              </MenuItem>
-              <MenuItem
-                onClick={() =>
-                  signOut({
-                    redirect: true,
-                    callbackUrl: `${window.location.origin}/`,
-                  })
-                }
-              >
-                Logout
               </MenuItem>
             </Menu>
           </Box>

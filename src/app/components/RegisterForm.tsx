@@ -18,7 +18,7 @@ const RegisterForm = () => {
       return;
     }
     try {
-      const res = await fetch("api/register", {
+      const res = await fetch("https://localhost:8000/user", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -47,7 +47,10 @@ const RegisterForm = () => {
       <div className="flex flex-row">
         <div
           className="h-screen bg-ima w-4/6"
-          style={{ backgroundImage: "url(/images/home-bg-slider-img1.jpg)", backgroundSize: "cover" }}
+          style={{
+            backgroundImage: "url(/images/home-bg-slider-img1.jpg)",
+            backgroundSize: "cover",
+          }}
         />
         <div className="flex-col space-y-7 flex p-6 justify-center mb-60 ml-11">
           <h1 className="text-blue-500 font-bold text-5xl">Register</h1>
@@ -73,7 +76,10 @@ const RegisterForm = () => {
               type="password"
               placeholder="Password"
             ></input>
-            <button className="bg-blue-500 rounded-lg p-3 max-w-32 background text-white" type="submit">
+            <button
+              className="bg-blue-500 rounded-lg p-3 max-w-32 background text-white"
+              type="submit"
+            >
               Register
             </button>
           </form>
